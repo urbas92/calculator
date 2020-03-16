@@ -1,32 +1,30 @@
-
-
 const display = document.querySelector('.display');
 
-document.querySelectorAll(".digits button")
-    .forEach( button => button.addEventListener('click', digitPressed));
+
+document.querySelectorAll('.digits button')
+   .forEach( button => button.addEventListener('click' , digitPressed));
 
 function digitPressed(ev) {
-  display.value += ev.target.innerText;
+    display.value += ev.target.innerText;
 }
-
 document.querySelectorAll('.opers button')
-      .forEach( button => button.addEventListener('click',operPressed));
+   .forEach( button => button.addEventListener('click' , operPressed));
 
-function operPressed (ev) {
-  display.value += ev.target.innerText;
-  }
-
-
-document.querySelector('.eq').addEventListener('click',calculate);
-
-function calculate () {
-  display.value = eval(display.value).toFixed(2);
+function operPressed(ev) {
+    display.value += ev.target.innerText;
 }
 
-function clean () {
-  display.value = "";
-}
+document.querySelector('.reset').addEventListener('click', reset);
+     function reset() {
+         display.value = " ";
 
+}
+document.querySelector('.eq').addEventListener('click', calc);
+     function calc() {
+         display.value = eval(display.value);
+        }
+document.querySelector('.back').addEventListener('click', back);
 function back() {
-    display.value = exp.substring(0, display.value.length-1);
+    var exp = display.value;
+    display.value = exp.substring(0, exp.length - 1);
 }
